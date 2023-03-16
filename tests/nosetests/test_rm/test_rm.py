@@ -28,6 +28,7 @@ def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
     if plot: print("rv@primary max abs diff: {}".format(max(np.abs(phoebe1_val-phoebe2_val))))
 
     # debug
+    print()
     print("phoebe2 " + "="*70)
     print(phoebe2_val)
     print("phoebe1 " + "="*70)
@@ -40,6 +41,7 @@ def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
     if plot: print("rv@secondary max abs diff: {}".format(max(np.abs(phoebe1_val-phoebe2_val))))
 
     # debug
+    print()
     print("phoebe2 " + "="*70)
     print(phoebe2_val)
     print("phoebe1 " + "="*70)
