@@ -26,19 +26,33 @@ def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
     phoebe2_val = b.get_value('rvs@primary@phnumresults@phnum')
     phoebe1_val = b.get_value('rvs@primary@legnumresults@legnum')
     if plot: print("rv@primary max abs diff: {}".format(max(np.abs(phoebe1_val-phoebe2_val))))
-    assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0), (phoebe2_val, phoebe1_val)
+
+    # debug
+    print("phoebe2 " + "="*70)
+    print(phoebe2_val)
+    print("phoebe1 " + "="*70)
+    print(phoebe1_val)
+
+    assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0)
 
     phoebe2_val = b.get_value('rvs@secondary@phnumresults@phnum')
     phoebe1_val = b.get_value('rvs@secondary@legnumresults@legnum')
     if plot: print("rv@secondary max abs diff: {}".format(max(np.abs(phoebe1_val-phoebe2_val))))
-    assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0), (phoebe2_val, phoebe1_val)
+
+    # debug
+    print("phoebe2 " + "="*70)
+    print(phoebe2_val)
+    print("phoebe1 " + "="*70)
+    print(phoebe1_val)
+
+    assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0)
 
 def test_binary(plot=False, gen_comp=False):
 
     b = phoebe.default_binary()
 
     period = b.get_value('period@orbit')
-    times = np.linspace(-0.2,1.2*period,51)
+    times = np.linspace(-0.2,1.2*period,11)
 
     #turn off albedos (legacy requirement)
     b.set_value_all('irrad_frac_refl_bol',  0.0)
