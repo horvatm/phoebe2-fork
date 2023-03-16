@@ -1,4 +1,5 @@
 """
+  Check discrepancy in RV between Phoebe 2 and Phoebe legacy.
 """
 
 import phoebe
@@ -25,12 +26,12 @@ def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
     phoebe2_val = b.get_value('rvs@primary@phnumresults@phnum')
     phoebe1_val = b.get_value('rvs@primary@legnumresults@legnum')
     if plot: print("rv@primary max abs diff: {}".format(max(np.abs(phoebe1_val-phoebe2_val))))
-    assert(np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0))
+    assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0), (phoebe2_val, phoebe1_val)
 
     phoebe2_val = b.get_value('rvs@secondary@phnumresults@phnum')
     phoebe1_val = b.get_value('rvs@secondary@legnumresults@legnum')
     if plot: print("rv@secondary max abs diff: {}".format(max(np.abs(phoebe1_val-phoebe2_val))))
-    assert(np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0))
+    assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0), (phoebe2_val, phoebe1_val)
 
 def test_binary(plot=False, gen_comp=False):
 
