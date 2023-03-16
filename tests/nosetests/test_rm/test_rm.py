@@ -54,7 +54,7 @@ def test_binary(plot=False, gen_comp=False):
     b = phoebe.default_binary()
 
     period = b.get_value('period@orbit')
-    times = np.linspace(-0.2,1.2*period,11)
+    times = np.linspace(-0.2,1.2*period, 51)
 
     #turn off albedos (legacy requirement)
     b.set_value_all('irrad_frac_refl_bol',  0.0)
