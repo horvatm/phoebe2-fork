@@ -6,10 +6,8 @@ on:
   pull_request:
   push:
     branches:
+      - 'macfix'
       - 'master'
-      - 'feature-*'
-      - 'bugfix-*'
-
 jobs:
   build:
     runs-on: ${{ matrix.os }}
