@@ -20,8 +20,8 @@ def check_arch():
 
   #about log double in python
   import numpy as np
-  print("info:", np.finfo(np.longdouble))
-  print("size:", np.longdouble().nbytes)
+  print("long double.info:", np.finfo(np.longdouble))
+  print("long double.size:", np.longdouble().nbytes)
 
 def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
 
