@@ -8,6 +8,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+# checking what architectue is used
+def check_arch():
+  # about platform
+  import platform
+
+  print("platform.architecture:", platform.architecture()[0])
+  print("platform.processor:", platform.processor())
+  print("platform.system:", platform.system())
+  print("platform.release:", platform.release())
+
+  #about log double in python
+  import numpy as np
+  print("info:", np.finfo(np.longdouble))
+  print("size:", np.longdouble().nbytes)
+
 def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
 
 
@@ -50,6 +65,7 @@ def _beta_vs_legacy(b, syncpar, plot=False, gen_comp=False):
     assert np.allclose(phoebe2_val, phoebe1_val, rtol=0., atol=2.0)
 
 def test_binary(plot=False, gen_comp=False):
+    check_arch()
 
     b = phoebe.default_binary()
 
@@ -71,22 +87,7 @@ def test_binary(plot=False, gen_comp=False):
 
     return b
 
-# checking what architectue is used
-def check_arch():
-  # about platform
-  import platform
-
-  print("platform.architecture:", platform.architecture()[0])
-  print("platform.processor:", platform.processor())
-  print("platform.system:", platform.system())
-  print("platform.release:", platform.release())
-
-  #about log double in python
-  import numpy as np
-  print("info:", np.finfo(np.longdouble))
-  print("size:", np.longdouble().nbytes)
-
 if __name__ == '__main__':
-    check_arch()
+
     logger = phoebe.logger()
     b = test_binary(plot=True, gen_comp=True)
