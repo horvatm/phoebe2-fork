@@ -83,7 +83,8 @@ def check_arch():
 
   #about log double in python
   import numpy as np
-  print(np.finfo(np.longdouble))
+  print("info:", np.finfo(np.longdouble))
+  print("size:", np.longdouble().nbytes)
 
 if __name__ == '__main__':
     check_arch()
