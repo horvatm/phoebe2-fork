@@ -13,7 +13,7 @@
 #include <cmath>
 
 namespace utils {
-
+  /*
   template<class T>
   inline void sincos(const T &angle, T *s, T *c){
     #if defined(TARGET_HAS_SINCOS)
@@ -22,6 +22,13 @@ namespace utils {
     *s = std::sin(angle);
     *c = std::cos(angle);
     #endif
+  }
+  */
+
+  template<class T>
+  inline void sincos(const T &angle, T *s, T *c){
+    *s = std::sin<T>(angle);
+    *c = std::cos<T>(angle);
   }
 
   /*
