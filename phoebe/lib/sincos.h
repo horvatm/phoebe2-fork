@@ -13,7 +13,8 @@
 #include <cmath>
 
 namespace utils {
-  /*
+
+  #if 0
   template<class T>
   inline void sincos(const T &angle, T *s, T *c){
     #if defined(TARGET_HAS_SINCOS)
@@ -23,13 +24,13 @@ namespace utils {
     *c = std::cos(angle);
     #endif
   }
-  */
-
+  # else
   template<class T>
   inline void sincos(const T &angle, T *s, T *c){
     *s = std::sin(angle);
     *c = std::cos(angle);
   }
+  #endif
 
   /*
     Calculate array of scaled sinus and cosinus
