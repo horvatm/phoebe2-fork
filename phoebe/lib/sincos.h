@@ -14,15 +14,15 @@
 
 namespace utils {
 
-  #if 0
+  #if 1
   template<class T>
   inline void sincos(const T &angle, T *s, T *c){
-    #if defined(TARGET_HAS_SINCOS)
+    //#if defined(TARGET_HAS_SINCOS)
     asm volatile("fsincos" : "=t" (*c), "=u" (*s) : "0" (angle));
-    #else
-    *s = std::sin(angle);
-    *c = std::cos(angle);
-    #endif
+    //#else
+    //*s = std::sin(angle);
+    //*c = std::cos(angle);
+    //#endif
   }
   # else
   template<class T>
