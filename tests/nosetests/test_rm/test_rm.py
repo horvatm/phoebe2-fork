@@ -68,12 +68,13 @@ def test_binary(plot=False, gen_comp=False):
     check_arch()
 
     b = phoebe.default_binary()
-
+    
     period = b.get_value('period@orbit')
     times = np.linspace(-0.2,1.2*period, 51)
 
     #turn off albedos (legacy requirement)
     b.set_value_all('irrad_frac_refl_bol',  0.0)
+    b.set_value_all('ntriangles', 30000)
 
     b.add_dataset('rv', times=times, dataset='rv01', ld_mode='manual', ld_func='logarithmic', ld_coeffs = [0.5,0.5])
 
