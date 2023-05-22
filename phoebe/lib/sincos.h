@@ -14,24 +14,16 @@
 
 namespace utils {
 
-  #if 1
   template<class T>
   inline void sincos(const T &angle, T *s, T *c){
-    //#if defined(TARGET_HAS_SINCOS)
+    #if defined(TARGET_HAS_SINCOS)
+    #warning "USING FSINCOS"
     asm volatile("fsincos" : "=t" (*c), "=u" (*s) : "0" (angle));
-    //#else
-    //*s = std::sin(angle);
-    //*c = std::cos(angle);
-    //#endif
-  }
-  # else
-  template<class T>
-  inline void sincos(const T &angle, T *s, T *c){
+    #else
     *s = std::sin(angle);
     *c = std::cos(angle);
+    #endif
   }
-  #endif
-
   /*
     Calculate array of scaled sinus and cosinus
 

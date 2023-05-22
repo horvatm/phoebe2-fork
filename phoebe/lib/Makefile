@@ -1,14 +1,14 @@
 #CXX=icpc
-CXX=g++
-#CXX=clang++
-CXXFLAGS=-O3 -Wall -std=c++11
+#CXX=g++
+CXX=clang++
+CXXFLAGS=-O3 -Wall -std=c++11 -DTARGET_HAS_SINCOS
 
 ifdef PYTHON
 CXXFLAGS+=$(shell $(PYTHON)-config --includes)
 LDFLAGS+=$(shell $(PYTHON)-config --ldflags)
 else
-CXXFLAGS+=$(shell python-config --includes)
-LDFLAGS+=$(shell python-config --ldflags)
+CXXFLAGS+=$(shell python3-config --includes)
+LDFLAGS+=$(shell python3-config --ldflags)
 endif
 
 LIBP=libphoebe
